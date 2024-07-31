@@ -36,3 +36,16 @@ export const uiNewsItem = (item) => {
         </div>
         `
 }
+
+export const uiLoading = (type) => {
+    const root = document.querySelector('#root');
+    const loading = document.querySelector('#loading');
+    if(type === 'show') {
+        root.style.display = 'none';
+        loading.style.display = 'flex';
+    }
+    else {
+        root.style.display = 'block';
+        loading.style.display = 'none';
+    }
+}

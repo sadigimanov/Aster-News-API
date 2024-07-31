@@ -14,7 +14,7 @@ class Router {
         if(!url) {
             window.location.href = '#home';
         }
-        if(page.url) {
+        if(page && page.url) {
             this.loadPage(page.url, {
                 callback: page.callback,
                 param
@@ -29,7 +29,8 @@ class Router {
         const res = await fetch(`/pages/${url}`);
         const html =  await res.text();
         this.rootElement.innerHTML = html; 
-        if (option.callback) {
+
+        if (option && option.callback) {
             option.callback(option.param);
         }
     }
