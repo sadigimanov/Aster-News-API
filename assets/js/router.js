@@ -7,9 +7,14 @@ class Router {
     }
 
     hashChange() {
-        const [url, param] = window.location.hash.slice(1).split('/');
-        const page = this.routes[url];
+        const [customUrl, param] = window.location.hash.slice(1).split('/');
+        let page = this.routes[customUrl];
+        let url = customUrl;
 
+        if(customUrl.includes('?')){
+            const url = customUrl.split('?');
+            page = this.routes[url[0]];
+        }
         
         if(!url) {
             window.location.href = '#home';

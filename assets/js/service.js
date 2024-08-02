@@ -1,5 +1,5 @@
-export const serviceFetchNews = async (page) => {
-    const api = await fetch('https://all-api.bitcode.az/api/news?page=' + page);
+export const serviceFetchNews = async (queryParams = '') => {
+    const api = await fetch('https://all-api.bitcode.az/api/news' + queryParams);
     return await api.json();
 }
 
